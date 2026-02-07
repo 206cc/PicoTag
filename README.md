@@ -1,5 +1,11 @@
 ![PicoTag web interface example](assets/img/demo.jpg)
 
+[![cht](https://img.shields.io/badge/lang-cht-green.svg)](README.cht.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
+
+> [!TIP]
+> 中文說明請點選上方![image](https://img.shields.io/badge/lang-cht-green.svg)連結
+
 # PicoTag  
 **QR Code–based Stringing Record System for Tennis & Badminton Rackets**
 
@@ -35,6 +41,8 @@ For racket owners, it improves transparency and access to stringing information.
 
 - **QR Code Stringing Records**  
   Each stringing job generates a unique QR Code containing tension settings, string and racket details, notes, and date information.
+
+  **Example record page**: https://picotag.cc/?id=EHshhlCh
 
 - **Pre-filled Stringing Requests**  
   Racket owners may prepare stringing requirements in advance to reduce communication errors.
