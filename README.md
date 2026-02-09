@@ -47,6 +47,13 @@ if a password is set when creating a tag, you can add follow-up notes later (wit
 
   **Example record page**: https://picotag.cc/?id=EHshhlCh
 
+- **Sport-Specific QR Code Labels (Badminton / Tennis)**  
+  PicoTag provides two dedicated QR label formats based on **Tag Type**:
+  - **Badminton**: a compact **square** label, commonly placed on the **butt cap (bottom of the handle)**.
+  - **Tennis**: a **slim rectangular** label, designed for placement on the **throat area (side of the frame)**.
+
+  When viewing a record, PicoTag automatically renders the correct label format for the selected Tag Type.
+
 - **Remarks (Follow-up Notes)**  
   If a password is set when creating the tag, you can add follow-up remarks on the View page. Each remark is saved with a timestamp and displayed under the Notes section, helping you keep a clean history of changes, feedback, or extra details.
 
