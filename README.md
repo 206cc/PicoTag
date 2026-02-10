@@ -35,6 +35,7 @@ Instead of handwritten stickers or paper notes that may fade or be lost, PicoTag
 For stringers, this creates a more consistent and professional presentation of their work.  
 For racket owners, it improves transparency and access to stringing information.
 
+Record your setup and feel changes. View and share anytime — and share with your stringer when needed. Tap “Share Link” to send details to your stringer when needed. Tap “Print Tag” to attach a label to your racket. Use remarks to track setup and feel changes over time.
 In addition, PicoTag includes a **Remarks** feature:  
 if a password is set when creating a tag, you can add follow-up notes later (with an automatic timestamp), making it easy to track adjustments, feedback, or any additional context over time.
 
@@ -55,14 +56,13 @@ if a password is set when creating a tag, you can add follow-up notes later (wit
   When viewing a record, PicoTag automatically renders the correct label format for the selected Tag Type.
 
 - **Remarks (Follow-up Notes)**  
-  If a password is set when creating the tag, you can add follow-up remarks on the View page. Each remark is saved with a timestamp and displayed under the Notes section, helping you keep a clean history of changes, feedback, or extra details.
+  If a password is set when creating the tag, you can add follow-up remarks on the View page. Each remark is saved with a timestamp and displayed under the Notes section, helping you keep a clean history of changes, feedback, or extra details. Up to 10 remarks can be saved per tag.
 
 - **Pre-filled Stringing Requests**  
   Racket owners may prepare stringing requirements in advance to reduce communication errors.
 
 - **Easy Sharing**  
   Records can be shared via QR Code or URL using a consistent, readable format.
-
 
 ---
 
