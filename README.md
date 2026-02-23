@@ -1,146 +1,115 @@
-![PicoTag web interface example](assets/img/demo.jpg)
+![PicoTag Web UI Preview](assets/img/demo.jpg)
 
 [![cht](https://img.shields.io/badge/lang-cht-green.svg)](README.cht.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 
+# PicoTag
+**Badminton & Tennis Stringing Record QR Code System**
+
+> Put a QR code tag on your racket to keep every stringing record: scan it to view the date, tension, string, racket info, and notes.  
+> Hardware-agnostic — suitable for stringers, shops, and DIY stringers.
+
+> **Status**: PicoTag is currently in its final testing phase and the official release is coming soon.  
+> Documentation has been prepared in `docs/` so you can preview how to use it, deploy it, and customize/deploy your own modified version.
+
+## Quick Overview: What can it do?
+
+- **Create a Tag → Generate a QR Code → Print a label → Stick it on the racket**  
+  Each stringing creates one record and a dedicated QR code label.
+
+- **Owners scan to view records and share the link**  
+  Scanning opens the record page, making it easy to review and share with friends or your stringer.
+
+- **Different label layouts for badminton / tennis**  
+  Supports **square labels for badminton** and **slim labels for tennis**, fitting different mounting spots.
+
+- **Remark (Notes): record feel and feedback**  
+  Add notes such as “how it feels”, “where it broke”, and “next tension/string to try”.  
+  This helps you track and compare over time, and also provides useful feedback to your stringer for the next setup.
+
+- **Admin features**  
+  Manage reference lists (rackets/strings/patterns/stringers, etc.), browse all tag records, check system status, and personalize the site.
+
+- **Export (CSV)**  
+  Export records by date range, then analyze in Excel/Google Sheets (e.g., string usage, tension distribution, customer retention).
+
+**Example record page**: https://picotag.cc/?id=EHshhlCh
+
+---
+
+## Public Web App
+
+You can use PicoTag directly via the public web app:
+
+**https://picotag.cc**
+
+- Provides full **QR code generation** and **record lookup** features
+
 > [!TIP]
-> 中文說明請點選上方![image](https://img.shields.io/badge/lang-cht-green.svg)連結
-
-# PicoTag  
-**QR Code–based Stringing Record System for Tennis & Badminton Rackets**
-
-> A simple, hardware-agnostic QR code system for tennis and badminton racket stringing records.
-
-## Public Web Interface
-PicoTag can be used directly via the public web interface:
-
-https://picotag.cc  
-
-The public interface provides full QR Code generation and record viewing.  
-Backend management features are available only when self-hosting.
-
-> [!TIP]
-> The public web interface is an official, production-use entry point and not a demo.  
-> PicoTag is currently in its final public testing phase.  
-> The source code will be published once the system is fully stabilized.
+> If you just want to use PicoTag without hosting your own site, you can create and look up Tags on the public site.  
+> The public site does **not** provide admin pages (records/reference/site/system). Admin features are available only when you self-host.
 
 ---
 
-## Overview
+## QR Code Printing (Common Options)
 
-PicoTag is an open-source tool designed to digitize racket stringing records.
+- **18mm label printer**: print fast and stick on the racket  
+  ![18mm label printer example](assets/img/label_maker.jpg)
 
-Instead of handwritten stickers or paper notes that may fade or be lost, PicoTag generates a unique QR Code for each stringing job, allowing records to be easily viewed, shared, and referenced later.
-
-For stringers, this creates a more consistent and professional presentation of their work.  
-For racket owners, it improves transparency and access to stringing information.
-
-Record your setup and feel changes. View and share anytime — and share with your stringer when needed. Tap “Share Link” to send details to your stringer when needed. Tap “Print Tag” to attach a label to your racket. Use remarks to track setup and feel changes over time.
-In addition, PicoTag includes a **Remarks** feature:  
-if a password is set when creating a tag, you can add follow-up notes later (with an automatic timestamp), making it easy to track adjustments, feedback, or any additional context over time.
+- **Regular printer**: print, cut, and stick  
+  ![Regular printer example](assets/img/printer.jpg)
 
 ---
 
-## Core Capabilities
+## Documentation
 
-- **QR Code Stringing Records**  
-  Each stringing job generates a unique QR Code containing tension settings, string and racket details, notes, and date information.
+Guides are organized in `docs/`:
 
-  **Example record page**: https://picotag.cc/?id=EHshhlCh
+- **User Guide**: [`docs/1.user-guide.en.md`](docs/1.user-guide.en.md)  
+  For users and stringers: create Tags, attach labels, scan to view, and common features (includes a brief admin overview).
 
-- **Sport-Specific QR Code Labels (Badminton / Tennis)**  
-  PicoTag provides two dedicated QR label formats based on **Tag Type**:
-  - **Badminton**: a compact **square** label, commonly placed on the **butt cap (bottom of the handle)**.
-  - **Tennis**: a **slim rectangular** label, designed for placement on the **throat area (side of the frame)**.
+- **Deploy Guide**: [`docs/2.deploy-cloudflare.en.md`](docs/2.deploy-cloudflare.en.md)  
+  For self-hosting: complete setup on Cloudflare Pages + KV + D1 + Turnstile.
 
-  When viewing a record, PicoTag automatically renders the correct label format for the selected Tag Type.
-
-- **Remarks (Follow-up Notes)**  
-  If a password is set when creating the tag, you can add follow-up remarks on the View page. Each remark is saved with a timestamp and displayed under the Notes section, helping you keep a clean history of changes, feedback, or extra details. Up to 10 remarks can be saved per tag.
-
-- **Pre-filled Stringing Requests**  
-  Racket owners may prepare stringing requirements in advance to reduce communication errors.
-
-- **Easy Sharing**  
-  Records can be shared via QR Code or URL using a consistent, readable format.
+- **Dev Guide**: [`docs/3.dev-guide.en.md`](docs/3.dev-guide.en.md)  
+  For customization: download the Release ZIP → modify files → redeploy with Wrangler.
 
 ---
 
-## Optional: Self-Hosted Features
+## Data Handling, Terms, and Disclaimer
 
-When PicoTag is deployed with the full system, additional features are available:
-- backend record management  
-- CSV export for further analysis  
-
-Self-hosting is optional and intended for users who require full control over data and operation.
-
----
-
-## Printing the QR Code
-
-PicoTag works with common printing methods:
-
-- **18mm label printers**  
-  Quick, direct QR Code labels for racket frames.
-
-  ![18mm label printer QR code example](assets/img/label_maker.jpg)
-
-- **Standard printers**  
-  Print the information page and attach the QR Code manually.
-
-  ![Standard printer QR code example](assets/img/printer.jpg)
-
-No specialized or proprietary hardware is required.
-
----
-
-## Deployment Options
-
-- **Public Web Interface**  
-  Use https://picotag.cc directly without installation.
-
-- **Self-Hosted Deployment**  
-  PicoTag is designed for deployment on Cloudflare.  
-  The repository and deployment documentation are being prepared for public release.
-
----
-
-## Data Handling, Usage & Responsibility
-
-Information related to data handling, acceptable use, liability limitations, and responsibility boundaries for the **Public Web Interface** is documented separately.
-
-Please review the following notice before using the service:
+For policies related to the **public web app** (data handling, usage rules, responsibilities, and disclaimers), please refer to:
 
 **[NOTICE.md](./NOTICE.md)**
-
-This notice covers:
-- data handling and retention practices  
-- acceptable use and abuse handling  
-- liability limitations  
-- responsibilities for self-hosted deployments  
 
 ---
 
 ## Security & Contact
 
-For security issues, vulnerabilities, or deletion requests related to the **official Public Web Interface**,  
-please contact:
+If you discover a security issue/vulnerability, or need help with a deletion request related to the **official public web app**, please contact:
 
-**500119.cpc@gmail.com**
+**contact@picotag.cc**
 
-Please do not include personal or sensitive information in public reports.  
-When contacting, provide only necessary information (e.g. Tag ID).
+Please do not post any personal or sensitive information in public channels.  
+When contacting us, provide only the necessary details (e.g., Tag ID).
 
 ---
 
 ## License & Attribution
 
-PicoTag is released under the **MIT License**.
+PicoTag is licensed under the **MIT License**.
 
-When using the original or derived web UI, please preserve:
-- the project name **“PicoTag”**  
-- and the footer attribution  
+When using the original or derived web interface, please keep:
+- The project name **“PicoTag”**
+- The footer attribution
 
-This is a branding and attribution request as described in:
-- [LICENSE](./LICENSE)  
+References:
+- [LICENSE](./LICENSE)
 - [Attribution & Name Policy](./ATTRIBUTION.md)
+
+---
+
+## Acknowledgements
+
+- **qrcodejs (davidshimjs)**: used for front-end QR code generation  
+- **JetBrains Mono**: used as a monospace font (e.g., Tag ID / system info)  
