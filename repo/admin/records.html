@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag Admin · Records</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="/assets/js/admin_guard.js"></script>
+        <script src="/assets/js/i18n.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+                <button data-i18n="btn_sign_out" id="btnLogout" class="u-hidden">
+                    Sign out
+                </button>
+            </div>
+        </header>
+        <main class="wrap">
+            <div class="pillRow">
+                <a class="pill menuPill pillPrimary" href="new.html" data-i18n="admin_menu_new_tag">
+                    + New Tag
+                </a>
+                <span class="pillSep" aria-hidden="true">
+                </span>
+                <a class="pill menuPill" href="reference.html" data-i18n="admin_menu_reference">
+                    Reference Lists
+                </a>
+                <a class="pill menuPill active" href="records.html" data-i18n="admin_menu_records">
+                    Records
+                </a>
+                <a class="pill menuPill" href="system.html" data-i18n="admin_menu_system">
+                    System
+                </a>
+                <a class="pill menuPill" href="site.html">
+                    <span data-i18n="admin_menu_site">
+                        Site
+                    </span>
+                </a>
+            </div>
+            <div class="status ok u-hidden" id="statusOk">
+            </div>
+            <div class="status err u-hidden" id="statusErr">
+            </div>
+            <h1 class="pageTitle" data-i18n="admin_records_title">
+                Records
+            </h1>
+            <section class="card" id="recordsCard">
+                <div class="cardHead">
+                    <div>
+                        <div class="muted" data-i18n="admin_records_desc">
+                            Lists Tag IDs from the D1 database (paginated). Quickly open view or delete as admin.
+                        </div>
+                    </div>
+                </div>
+                <div class="toolbar u-mt12">
+                    <div class="toolbarLeft u-flexwrap u-gap10">
+                        <div class="fieldGroup u-minw200">
+                            <label class="label" data-i18n="admin_records_export_range">
+                                Export range
+                            </label>
+                            <select class="select" id="exportPreset">
+                                <option data-i18n="admin_records_this_month" selected value="this_month">
+                                    This month
+                                </option>
+                                <option data-i18n="admin_records_last_month" value="last_month">
+                                    Last month
+                                </option>
+                                <option data-i18n="admin_records_last_7" value="last_7">
+                                    Last 7 days
+                                </option>
+                                <option data-i18n="admin_records_last_30" value="last_30">
+                                    Last 30 days
+                                </option>
+                                <option data-i18n="admin_records_custom_range" value="custom">
+                                    Custom range
+                                </option>
+                            </select>
+                        </div>
+                        <div class="fieldGroup u-minw160">
+                            <label class="label" data-i18n="admin_records_from">
+                                From
+                            </label>
+                            <input class="input" id="exportFrom" type="date">
+                        </div>
+                        <div class="fieldGroup u-minw160">
+                            <label class="label" data-i18n="admin_records_to">
+                                To
+                            </label>
+                            <input class="input" id="exportTo" type="date">
+                        </div>
+                    </div>
+                    <div class="toolbarRight u-flexwrap u-gap10">
+                        <button class="btn btnPrimary" data-i18n="admin_records_btn_export_csv" id="btnExportCsv">
+                            Export CSV
+                        </button>
+                    </div>
+                </div>
+                <div class="toolbar u-mt12">
+                    <div class="toolbarLeft u-flexwrap u-gap10">
+                        <div class="fieldGroup">
+                            <label class="label" data-i18n="admin_records_search">
+                                Search
+                            </label>
+                            <input class="input" data-i18n-data-i18n-placeholder="admin_records_search_ph" data-i18n-placeholder="admin_records_search_ph" id="q" type="text">
+                        </div>
+                        <div class="fieldGroup u-minw140">
+                            <label class="label" data-i18n="admin_records_per_page">
+                                Per page
+                            </label>
+                            <select class="select" id="pageSize">
+                                <option selected value="10">
+                                    10
+                                </option>
+                                <option value="20">
+                                    20
+                                </option>
+                                <option value="50">
+                                    50
+                                </option>
+                                <option value="100">
+                                    100
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="toolbarRight u-flexwrap u-gap10">
+                        <button class="btn btnGhost" data-i18n="admin_records_btn_export_ids_page" id="btnExport">
+                            Export IDs (page)
+                        </button>
+                        <button class="btn" data-i18n="admin_records_btn_prev" id="btnPrev">
+                            Prev
+                        </button>
+                        <button class="btn btnPrimary" data-i18n="admin_records_btn_next" id="btnNext">
+                            Next
+                        </button>
+                    </div>
+                </div>
+                <div class="listWrap u-mt12">
+                    <div class="tableWrap">
+                        <table class="recordsTable">
+                            <thead>
+                                <tr>
+                                    <th class="thIdx">
+                                        #
+                                    </th>
+                                    <th class="thId">
+                                        <button class="thBtn" data-sort="id" type="button">
+                                            <span data-i18n="admin_records_th_tag_id">
+                                                Tag ID
+                                            </span>
+                                            <span class="sortMark">
+                                            </span>
+                                        </button>
+                                    </th>
+                                    <th class="thFlags">
+                                        <span data-i18n="admin_records_th_protection">
+                                            Protection
+                                        </span>
+                                    </th>
+                                    <th class="thOwner">
+                                        <button class="thBtn" data-sort="owner" type="button">
+                                            <span data-i18n="admin_records_th_tag_name">
+                                                Tag Name
+                                            </span>
+                                            <span class="sortMark">
+                                            </span>
+                                        </button>
+                                    </th>
+                                    <th class="thTension">
+                                        <button class="thBtn" data-sort="tension_setting" type="button">
+                                            <span data-i18n="admin_records_th_tension">
+                                                Tension
+                                            </span>
+                                            <span class="sortMark">
+                                            </span>
+                                        </button>
+                                    </th>
+                                    <th class="thCreated">
+                                        <button class="thBtn" data-sort="created_at" type="button">
+                                            <span data-i18n="admin_records_th_created">
+                                                Created
+                                            </span>
+                                            <span class="sortMark">
+                                            </span>
+                                        </button>
+                                    </th>
+                                    <th class="thActions">
+                                        <span data-i18n="admin_records_th_actions">
+                                            Actions
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="list">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="listStatus">
+                    </div>
+                    <div class="recordsFooter">
+                        <span class="countBox" id="count">
+                        </span>
+                    </div>
+                </div>
+                <div class="footNote muted">
+                    <span id="dbTotal">
+                    </span>
+                </div>
+                <div class="toast u-hidden" id="toast">
+                </div>
+            </section>
+        </main>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div aria-hidden="true" class="loadingOverlay" id="loadingOverlay">
+            <div aria-live="polite" class="loadingSheet" data-i18n-aria="msg_loading" role="status">
+                <div aria-hidden="true" class="loadingSpinner">
+                </div>
+                <div class="loadingText" data-i18n="msg_loading" id="loadingText">
+                    Loading
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/records.js"></script>
+        <script src="/assets/js/version_badge.js"></script>
+    </body>
+</html>

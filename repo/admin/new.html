@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag · New Tag</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/new.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="/assets/js/admin_guard.js"></script>
+        <script src="/assets/js/admin_common.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+                <button data-i18n="btn_sign_out" id="btnLogout" class="u-hidden">
+                    Sign out
+                </button>
+            </div>
+        </header>
+        <main class="wrap">
+            <div class="pillRow">
+                <a class="pill menuPill pillPrimary active" href="new.html" data-i18n="admin_menu_new_tag">
+                    + New Tag
+                </a>
+                <span class="pillSep" aria-hidden="true">
+                </span>
+                <a class="pill menuPill" href="reference.html" data-i18n="admin_menu_reference">
+                    Reference Lists
+                </a>
+                <a class="pill menuPill" href="records.html" data-i18n="admin_menu_records">
+                    Records
+                </a>
+                <a class="pill menuPill" href="system.html" data-i18n="admin_menu_system">
+                    System
+                </a>
+                <a class="pill menuPill" href="site.html">
+                    <span data-i18n="admin_menu_site">
+                        Site
+                    </span>
+                </a>
+            </div>
+            <h1 class="h1" data-i18n="admin_new_h1">
+                Create Tag
+            </h1>
+            <div class="card">
+                <div class="layoutSplit">
+                    <div class="leftPane">
+                        <div class="grid" id="formGrid">
+                            <div class="row highlightRow">
+                                <label>
+                                    <span data-i18n="field_sport">
+                                        Sport
+                                    </span>
+                                    <span class="req">
+                                        *
+                                    </span>
+                                    <span class="reqBadge" data-i18n="required_badge">
+                                        Required
+                                    </span>
+                                </label>
+                                <div class="fmtRow" id="sportRow">
+                                    <label class="fmtOpt">
+                                        <input name="sport" type="radio" value="badminton"/>
+                                        <span data-i18n="sport_badminton_label">
+                                            Badminton
+                                        </span>
+                                    </label>
+                                    <label class="fmtOpt">
+                                        <input name="sport" type="radio" value="tennis"/>
+                                        <span data-i18n="sport_tennis_label">
+                                            Tennis
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_owner">
+                                    Racket owner
+                                </label>
+                                <input data-i18n-placeholder="ph_no_personal_nickname" id="owner" maxlength="32" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    <span data-i18n="field_date">
+                                        Stringing date
+                                    </span>
+                                    <span class="req">
+                                        *
+                                    </span>
+                                    <span class="reqBadge" data-i18n="required_badge">
+                                        Required
+                                    </span>
+                                </label>
+                                <div class="dateInputWrap">
+                                    <input id="date" required="" type="date"/>
+                                    <span aria-hidden="true" class="dateDisplay" id="dateDisplay">
+                                    </span>
+                                </div>
+                                <div class="fmtRow" id="dateFmtRow">
+                                    <label class="fmtOpt">
+                                        <input checked="" name="dateFormat" type="radio" value="YMD"/>
+                                        <span data-i18n="datefmt_ymd">
+                                            YYYY-MM-DD
+                                        </span>
+                                    </label>
+                                    <label class="fmtOpt">
+                                        <input name="dateFormat" type="radio" value="DMY"/>
+                                        <span data-i18n="datefmt_dmy">
+                                            DD-MM-YYYY
+                                        </span>
+                                    </label>
+                                    <label class="fmtOpt">
+                                        <input name="dateFormat" type="radio" value="MDY"/>
+                                        <span data-i18n="datefmt_mdy">
+                                            MM-DD-YYYY
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row u-hidden" id="tensionSettingRow">
+                                <label>
+                                    <span data-i18n="field_tension">
+                                        Tension setting
+                                    </span>
+                                    <span class="req">
+                                        *
+                                    </span>
+                                    <span class="reqBadge" data-i18n="required_badge">
+                                        Required
+                                    </span>
+                                </label>
+                                <div class="u-flex u-gap10 u-align-center u-flexwrap">
+                                    <input id="tension" inputmode="decimal" max="90" min="5" placeholder="" required="" step="0.5" type="number"/>
+                                    <label class="unitOpt">
+                                        <input checked="" name="unit" type="radio" value="lb"/>
+                                        lbs
+                                    </label>
+                                    <label class="unitOpt">
+                                        <input name="unit" type="radio" value="kg"/>
+                                        kgs
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row u-hidden" id="tensionNoteRow">
+                                <label data-i18n="field_tension_note">
+                                    Tension note
+                                </label>
+                                <input data-i18n-placeholder="ph_tension_note" id="tension_note" placeholder="e.g. M(V):25 / C(H):27-25" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_prestretch">
+                                    Pre-stretch
+                                </label>
+                                <input data-i18n-placeholder="ph_prestretch" id="prestretch" maxlength="32" placeholder="e.g. 10% | M(V):0% / C(H):10%" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_pattern">
+                                    Pattern
+                                </label>
+                                <input id="pattern" maxlength="32" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_string_info">
+                                    String
+                                </label>
+                                <input id="string_info" maxlength="32" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_racket_info">
+                                    Racket model
+                                </label>
+                                <input id="racket_info" maxlength="32" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_racket_serial">
+                                    Racket serial
+                                </label>
+                                <input id="racket_serial" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_grommet">
+                                    Grommets
+                                </label>
+                                <input data-i18n-placeholder="ph_grommet" id="grommet" maxlength="32" placeholder="No change | Replace all | Replace single/shared holes" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_machine">
+                                    Machine
+                                </label>
+                                <input id="machine" maxlength="64" type="text" value=""/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_stringer">
+                                    Stringer
+                                </label>
+                                <input data-i18n-placeholder="ph_no_personal_nickname" id="stringer" maxlength="32" placeholder="" type="text" value=""/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_fee">
+                                    Fee
+                                </label>
+                                <input id="fee" maxlength="16" placeholder="" type="text"/>
+                            </div>
+                            <div class="row">
+                                <label data-i18n="field_video">
+                                    Photo/Video
+                                </label>
+                                <input data-i18n-placeholder="ph_video" id="video" maxlength="64" placeholder="e.g. https://youtu.be/..." type="text"/>
+                            </div>
+                            <div class="row u-grid-span-all">
+                                <label data-i18n="field_note">
+                                    Notes
+                                </label>
+                                <textarea data-i18n-placeholder="ph_no_personal" id="note" maxlength="256" placeholder=""></textarea>
+                            </div>
+                            <div class="row highlightRow u-grid-span-all" id="delpassRow">
+                                <label>
+                                    <span data-i18n="field_delpass">
+                                        Delete/View/Remarks password
+                                    </span>
+                                    <span class="optBadge" data-i18n="optional_badge">
+                                        Optional
+                                    </span>
+                                </label>
+                                <input autocomplete="new-password" data-i18n-placeholder="ph_delpass" id="delpass" inputmode="text" maxlength="32" placeholder="" type="password"/>
+                                <label class="vp-check">
+                                    <input id="viewProtect" type="checkbox"/>
+                                    <span data-i18n="view_protect_label">
+                                        瀏覽保謢
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button data-i18n="btn_save" id="saveBtn">
+                                Generate Tag ID &amp; QR Code
+                            </button>
+                        </div>
+                        <div class="status ok u-hidden" id="statusOk">
+                        </div>
+                        <div class="status err u-hidden" id="statusErr">
+                        </div>
+                    </div>
+                    <div class="rightPane">
+                        <div class="qrbox u-hidden" id="qrArea">
+                            <div class="intro qrUsage u-mt12" data-i18n-html="new_usage_html">
+                            </div>
+                            <div class="card u-radius14 u-hidden">
+                                <div class="muted" data-i18n="saved_badge">
+                                    Saved
+                                </div>
+                                <div class="mono u-fs16 u-mt6" id="savedId">
+                                </div>
+                                <div class="muted u-mt12" data-i18n="share_link">
+                                    Share link
+                                </div>
+                                <div class="mono u-fs16 u-mt6 u-breakall" id="bigUrl">
+                                </div>
+                            </div>
+                            <div class="qrCard">
+                                <div id="qrcode">
+                                </div>
+                                <div class="qrCenterBox u-mt2 u-hidden" id="qrCenter">
+                                </div>
+                                <a class="btn btnDownload u-mt8 u-hidden" data-i18n="btn_download_qr" href="#" id="downloadPngLink">
+                                    Download QR Code Label
+                                </a>
+                                <button class="btn btnDownload u-mt8 u-hidden" data-i18n="btn_copy" id="copyBtn">
+                                    Copy URL
+                                </button>
+                                <button class="btn btnDownload u-mt8 u-hidden" data-i18n="btn_open_tag" id="openUrlBtn">
+                                    Open Tag
+                                </button>
+                                <button class="btn btnDownload u-mt8 u-hidden" data-i18n="btn_share_link" id="shareBtnNew">
+                                    Share Link
+                                </button>
+                                <button class="btn btnDownload u-mt8 u-hidden" data-i18n="btn_print_tag" id="printTagBtn">
+                                    Print Tag
+                                </button>
+                            </div>
+                        </div>
+                        <div class="disclaimerBox" id="disclaimerBox">
+                            <div class="disclaimerTitle" data-i18n="disc_title">
+                                Notes / Disclaimer
+                            </div>
+                            <ul class="disclaimerList">
+                                <li data-i18n="disc_1">
+                                    This page is for creating and sharing PicoTag stringing info. Please verify the content yourself.
+                                </li>
+                                <li data-i18n="disc_2">
+                                    The share link is a public URL. Do not include personal data (real name, phone, email, address, social accounts). Use an alias/code if needed.
+                                </li>
+                                <li data-i18n="disc_3">
+                                    Please avoid uploading or linking content that may contain personal data (faces, phone numbers, chat screenshots, receipts, shipping labels, license plates).
+                                </li>
+                                <li data-i18n="disc_4">
+                                    Photo/video links are provided by users. Please ensure the source is safe before opening.
+                                </li>
+                                <li data-i18n="disc_5">
+                                    Data persistence is not guaranteed. Please back up important information yourself.
+                                </li>
+                                <li data-i18n="disc_6">
+                                    Labels/QR codes generated here are for identification/query only and do not imply warranty or liability.
+                                </li>
+                                <li data-i18n="disc_7">
+                                    If you are not sure how to fill in professional fields, you can fill in only "Tension" and describe the rest in "Notes".
+                                </li>
+                                <li data-i18n="disc_8">
+                                    If you want any content removed, please contact the site owner with the Tag ID / link.
+                                </li>
+                                <li class="noticeWarn" data-i18n-html="disc_terms">
+                                    Please make sure you’ve read the
+                                    <a href="https://github.com/206cc/PicoTag/blob/main/NOTICE.md" rel="noopener" target="_blank">
+                                        Terms &amp; Data Notice
+                                    </a>
+                                    before creating a Tag ID.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/assets/js/qrcode.js"></script>
+        <script src="/assets/js/qr_label.js"></script>
+        <script src="/assets/js/api.js"></script>
+        <script src="/assets/js/i18n.js"></script>
+        <script src="/assets/js/new.js"></script>
+        <div aria-label="Cookie notice" aria-live="polite" aria-modal="false" class="cookieBanner" id="cookieBanner" role="dialog">
+            <div class="cookieCard">
+                <div class="cookieTitle" data-i18n="cookie_title">
+                    Cookie notice
+                </div>
+                <div class="cookieText" data-i18n="cookie_text">
+                    We use cookies (and similar storage) for essential site functionality and convenience features like remembering preferences and pre-filling forms. No data is used for advertising purposes.
+                </div>
+                <div class="cookieActions">
+                    <button class="btn cookieBtn" data-i18n="cookie_accept" id="cookieAccept" type="button">
+                        Accept
+                    </button>
+                    <button class="btn btn-ghost cookieBtn" data-i18n="cookie_reject" id="cookieReject" type="button">
+                        Reject
+                    </button>
+                    <button class="btn btn-ghost cookieBtn" data-i18n="cookie_cancel" id="cookieCancel" type="button">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <script src="/assets/js/new.inline.js"></script>
+        </div>
+        <div aria-hidden="true" class="modal u-hidden" id="modal">
+            <div class="modalBackdrop" id="modalBackdrop">
+            </div>
+            <div aria-labelledby="modalTitle" aria-modal="true" class="modalCard" role="dialog">
+                <div class="modalTitle" data-i18n="create_tag_pass_title" id="modalTitle">
+                </div>
+                <div class="modalBody" id="modalBody">
+                </div>
+                <div class="modalActions">
+                    <button class="btn btnSecondary" data-i18n="btn_cancel" id="modalCancel" type="button">
+                        Cancel
+                    </button>
+                    <button class="btn" data-i18n="btn_confirm" id="modalOk" type="button">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/version_badge.js"></script>
+        <div aria-hidden="true" class="loadingOverlay u-hidden" id="loadingOverlay">
+            <div aria-live="polite" class="loadingOverlay__panel" role="status">
+                <div aria-hidden="true" class="loadingSpinner">
+                </div>
+                <div class="loadingOverlay__text" id="loadingOverlayText">
+                    Loading…
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

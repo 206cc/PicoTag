@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag Admin · Reference Lists</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="/assets/js/admin_guard.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+                <button data-i18n="btn_sign_out" id="btnLogout" class="u-hidden">
+                    Sign out
+                </button>
+            </div>
+        </header>
+        <main class="wrap">
+            <div class="pillRow">
+                <a class="pill menuPill pillPrimary" data-i18n="admin_menu_new_tag" href="new.html">
+                    + New Tag
+                </a>
+                <span aria-hidden="true" class="pillSep">
+                </span>
+                <a class="pill menuPill active" data-i18n="admin_menu_reference" href="reference.html">
+                    Reference Lists
+                </a>
+                <a class="pill menuPill" data-i18n="admin_menu_records" href="records.html">
+                    Records
+                </a>
+                <a class="pill menuPill" data-i18n="admin_menu_system" href="system.html">
+                    System
+                </a>
+                <a class="pill menuPill" href="site.html">
+                    <span data-i18n="admin_menu_site">
+                        Site
+                    </span>
+                </a>
+            </div>
+            <h1 class="pageTitle" data-i18n="admin_ref_title">
+                Reference Lists
+            </h1>
+            <section class="card" id="dictCard">
+                <div class="cardHead">
+                    <div>
+                        <div class="muted" data-i18n="admin_ref_desc">
+                            Fast search, inline rename, batch paste, and de-duplicate/normalize.
+                        </div>
+                    </div>
+                </div>
+                <div class="pillRow dictRow u-mt12">
+                    <button class="pill dictPill active" data-dict="_RACKET" data-i18n="admin_ref_dict_racket_badminton" type="button">
+                        Rackets (Badminton)
+                    </button>
+                    <button class="pill dictPill" data-dict="_PATTERN" data-i18n="admin_ref_dict_pattern_badminton" type="button">
+                        Patterns (Badminton)
+                    </button>
+                    <button class="pill dictPill" data-dict="_STRING" data-i18n="admin_ref_dict_string_badminton" type="button">
+                        Strings (Badminton)
+                    </button>
+                    <span aria-hidden="true" class="pillSep">
+                    </span>
+                    <button class="pill dictPill" data-dict="_RACKET_T" data-i18n="admin_ref_dict_racket_tennis" type="button">
+                        Rackets (Tennis)
+                    </button>
+                    <button class="pill dictPill" data-dict="_PATTERN_T" data-i18n="admin_ref_dict_pattern_tennis" type="button">
+                        Patterns (Tennis)
+                    </button>
+                    <button class="pill dictPill" data-dict="_STRING_T" data-i18n="admin_ref_dict_string_tennis" type="button">
+                        Strings (Tennis)
+                    </button>
+                    <span aria-hidden="true" class="pillSep">
+                    </span>
+                    <button class="pill dictPill" data-dict="_MACHINE" data-i18n="admin_ref_dict_machine" type="button">
+                        Machine
+                    </button>
+                    <button class="pill dictPill" data-dict="_STRINGER" data-i18n="admin_ref_dict_stringer" type="button">
+                        Stringers
+                    </button>
+                </div>
+                <div class="toolbar">
+                    <div class="toolbarLeft">
+                        <input class="input" data-i18n-placeholder="admin_ref_search_ph" id="q" type="text"/>
+                        <span class="countBox" id="count">
+                        </span>
+                    </div>
+                    <div class="toolbarRight">
+                        <button class="btn" data-i18n="admin_ref_btn_export_json" id="btnExport">
+                            Export JSON
+                        </button>
+                        <label class="btn btnGhost fileBtn">
+                            <span data-i18n="admin_ref_btn_import_json">
+                                Import JSON
+                            </span>
+                            <input accept="application/json" id="fileImport" type="file"/>
+                        </label>
+                        <button class="btn btnPrimary" data-i18n="admin_ref_btn_save" id="btnSave">
+                            Save
+                        </button>
+                        <span class="dirtyHint u-hidden" data-i18n="admin_ref_unsaved_changes" id="dirtyHint">
+                            Unsaved changes
+                        </span>
+                    </div>
+                </div>
+                <div class="addBox">
+                    <input class="input" data-i18n-placeholder="admin_ref_add_ph" id="addOne" type="text"/>
+                    <button class="btn" data-i18n="admin_ref_btn_add" id="btnAddOne">
+                        Add
+                    </button>
+                </div>
+                <details class="batchBox">
+                    <summary data-i18n="admin_ref_batch_summary">
+                        Batch add (one per line)
+                    </summary>
+                    <textarea class="textarea" data-i18n-placeholder="admin_ref_batch_ph" id="batch" rows="6">
+                    </textarea>
+                    <div class="batchActions">
+                        <button class="btn" data-i18n="admin_ref_btn_add_to_list" id="btnBatchAdd">
+                            Add to list
+                        </button>
+                        <span class="muted" data-i18n="admin_ref_batch_tip">
+                            Tip: Automatically trims, skips empty lines, and prevents duplicates.
+                        </span>
+                    </div>
+                </details>
+                <div class="listWrap">
+                    <div class="listHead">
+                        <div data-i18n="admin_ref_list_items">
+                            Items
+                        </div>
+                        <div class="right" data-i18n="admin_ref_list_actions">
+                            Actions
+                        </div>
+                    </div>
+                    <div class="list" id="list">
+                    </div>
+                </div>
+                <div class="footNote muted" data-i18n="admin_ref_footnote">
+                    Click text to rename; press Enter to submit. Deletes are not written to KV until you click Save.
+                </div>
+                <div class="status ok u-hidden" id="statusOk">
+                </div>
+                <div class="status err u-hidden" id="statusErr">
+                </div>
+            </section>
+        </main>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div aria-hidden="true" class="loadingOverlay" id="loadingOverlay">
+            <div aria-label="Loading" aria-live="polite" class="loadingSheet" role="status">
+                <div aria-hidden="true" class="loadingSpinner">
+                </div>
+                <div class="loadingText" id="loadingText">
+                    Loading…
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/i18n.js"></script>
+        <script src="/assets/js/admin.js"></script>
+        <script src="/assets/js/version_badge.js"></script>
+    </body>
+</html>

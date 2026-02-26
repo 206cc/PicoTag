@@ -1,0 +1,53 @@
+PicoTag - License & Third-Party Notices
+======================================
+
+PicoTag project license
+-----------------------
+The license for the PicoTag project (source code, documents, and original work) is defined on GitHub:
+https://github.com/206cc/PicoTag
+
+This file documents third-party components, fonts, and services used by PicoTag.
+
+
+
+Contact
+-------
+contact@picotag.cc
+
+Third-party components
+----------------------
+
+1) QR Code library: qrcodejs (davidshimjs)
+   - Source: https://davidshimjs.github.io/qrcodejs/
+   - Used file(s): assets/js/qrcode.js
+   - License: MIT License
+
+
+Fonts
+-----
+
+1) JetBrains Mono
+   - Source / License: https://www.jetbrains.com/lp/mono/#license
+   - Used file(s): assets/fonts/JetBrainsMono-Thin.woff2
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+
+   Note (from the official license page):
+   "JetBrains Mono typeface is available under the SIL Open Font License 1.1 license and can be used
+   free of charge, for both commercial and non-commercial purposes. You do not need to give credit to
+   JetBrains, although we will appreciate it very much if you do."
+
+
+Third-party services (APIs)
+---------------------------
+
+1) Cloudflare Turnstile
+   - Frontend API: https://challenges.cloudflare.com/turnstile/v0/api.js
+   - Verification API: https://challenges.cloudflare.com/turnstile/v0/siteverify
+   - Type: Managed service (not a bundled library)
+   - Note: Use is subject to Cloudflare terms and privacy policy.
+
+2) Cloudflare Web Analytics / Insights (if enabled)
+   - Domains: https://static.cloudflareinsights.com
+              https://cloudflareinsights.com
+   - Type: Managed service (not a bundled library)
+   - Note: Use is subject to Cloudflare terms and privacy policy.

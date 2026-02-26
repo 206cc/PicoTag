@@ -1,4 +1,4 @@
-![PicoTag Web UI Preview](assets/img/demo.jpg)
+![PicoTag Web UI Preview](docs/img/demo.jpg)
 
 [![cht](https://img.shields.io/badge/lang-cht-green.svg)](README.cht.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
@@ -8,9 +8,6 @@
 
 > Put a QR code tag on your racket to keep every stringing record: scan it to view the date, tension, string, racket info, and notes.  
 > Hardware-agnostic — suitable for stringers, shops, and DIY stringers.
-
-> **Status**: PicoTag is currently in its final testing phase and the official release is coming soon.  
-> Documentation has been prepared in `docs/` so you can preview how to use it, deploy it, and customize/deploy your own modified version.
 
 ## Quick Overview: What can it do?
 
@@ -54,10 +51,10 @@ You can use PicoTag directly via the public web app:
 ## QR Code Printing (Common Options)
 
 - **18mm label printer**: print fast and stick on the racket  
-  ![18mm label printer example](assets/img/label_maker.jpg)
+  ![18mm label printer example](docs/img/label_maker.jpg)
 
 - **Regular printer**: print, cut, and stick  
-  ![Regular printer example](assets/img/printer.jpg)
+  ![Regular printer example](docs/img/printer.jpg)
 
 ---
 

@@ -1,4 +1,4 @@
-![PicoTag 網頁介面示意](assets/img/demo.jpg)
+![PicoTag 網頁介面示意](docs/img/demo.jpg)
 
 [![cht](https://img.shields.io/badge/lang-cht-green.svg)](README.cht.md)
 [![en](https://img.shields.io/badge/lang-en-red.svg)](README.md)
@@ -8,9 +8,6 @@
 
 > 用 QR Code 把「每一次穿線紀錄」貼在球拍上：掃一下就能查看日期、張力、線材、球拍資訊與備註。  
 > 不綁定任何特定硬體，穿線師 / 店家 / 自己穿線的人都能使用。
-
-> **狀態說明**：PicoTag 的正式 Release 版本已進入最後測試階段，預計近期釋出。  
-> 相關說明文件已先整理並放置於 `docs/`，方便你提前了解使用方式、建置流程與自行修改部署的方法。
 
 ## 快速了解：它能做什麼？
 
@@ -53,10 +50,10 @@ PicoTag 可直接透過公開網頁介面使用：
 ## QR Code 列印方式（常見）
 
 - **18mm 標籤機**：快速列印並貼在球拍上  
-  ![18mm 標籤機 QR Code 範例](assets/img/label_maker.jpg)
+  ![18mm 標籤機 QR Code 範例](docs/img/label_maker.jpg)
 
 - **一般印表機**：列印後裁剪黏貼  
-  ![一般印表機 QR Code 範例](assets/img/printer.jpg)
+  ![一般印表機 QR Code 範例](docs/img/printer.jpg)
 
 ---
 

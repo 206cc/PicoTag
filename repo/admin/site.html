@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag Admin · Site Settings</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="/assets/js/admin_guard.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+                <button id="btnLogout" data-i18n="btn_sign_out" class="u-hidden">
+                    Sign out
+                </button>
+            </div>
+        </header>
+        <main class="wrap">
+            <div class="pillRow">
+                <a class="pill menuPill pillPrimary" href="new.html" data-i18n="admin_menu_new_tag">
+                    + New Tag
+                </a>
+                <span class="pillSep" aria-hidden="true">
+                </span>
+                <a class="pill menuPill" href="reference.html" data-i18n="admin_menu_reference">
+                    Reference Lists
+                </a>
+                <a class="pill menuPill" href="records.html" data-i18n="admin_menu_records">
+                    Records
+                </a>
+                <a class="pill menuPill" href="system.html" data-i18n="admin_menu_system">
+                    System
+                </a>
+                <a class="pill menuPill active" href="site.html">
+                    <span data-i18n="admin_menu_site">
+                        Site
+                    </span>
+                </a>
+            </div>
+            <div class="pageHead">
+                <h1 class="pageTitle">
+                    <span data-i18n="admin_site_title">
+                        Site
+                    </span>
+                </h1>
+                <div class="pageActions">
+                    <button class="btn btnPrimary" id="btnSaveSite">
+                        Save
+                    </button>
+                </div>
+            </div>
+            <div class="formMsg muted" id="siteSaveMsg">
+            </div>
+            <section class="sysCard" aria-label="Brand">
+                <h2 class="sysCardTitle">
+                    <span data-i18n="admin_site_brand_title">
+                        Brand
+                    </span>
+                </h2>
+                <div class="formGrid">
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_brand_name">
+                                    Brand name
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_brand_hint">
+                                    Shown in the topbar of the public page.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <input id="brandName" type="text" maxlength="64" placeholder="PicoTag">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sysCard" aria-label="Intro">
+                <h2 class="sysCardTitle">
+                    <span data-i18n="admin_site_intro_title">
+                        Intro
+                    </span>
+                </h2>
+                <div class="formGrid">
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_intro_heading">
+                                    Intro title
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_intro_title_hint">
+                                    Title displayed in the intro section.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <input id="introTitle" type="text" maxlength="64" placeholder="e.g. Welcome">
+                        </div>
+                    </div>
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_intro_text_label">
+                                    Intro text
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_intro_text_hint">
+                                    Short description. New lines will be preserved.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <textarea id="introText" maxlength="512" rows="5" placeholder="Write something about your studio...">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_intro_image_url">
+                                    Intro image URL
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_intro_image_hint">
+                                    Leave empty to use /assets/img/demo_tag.jpg .
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <input id="introMediaUrl" type="url" maxlength="256" placeholder="https://...">
+                            <div class="previewRow">
+                                <img id="introMediaPreview" class="previewBox" alt="Intro image preview" src="/assets/img/demo_tag.jpg">
+                                <div class="previewMeta" id="introMediaInfo">
+                                </div>
+                                <div class="previewMsg muted" id="introMediaMsg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sysCard" aria-label="Background">
+                <h2 class="sysCardTitle">
+                    <span data-i18n="admin_site_bg_title">
+                        Background
+                    </span>
+                </h2>
+                <div class="formGrid">
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_bg_image_url">
+                                    Background image URL
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_bg_image_hint">
+                                    Leave empty to use /assets/img/bg.gif .
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <input id="bgImageUrl" type="url" maxlength="256" placeholder="https://...">
+                            <div class="previewRow">
+                                <img id="bgImagePreview" class="previewBox" aria-label="Background preview" alt="Background image preview" src="/assets/img/bg.gif">
+                                <div class="previewMeta" id="bgImageInfo">
+                                </div>
+                                <div class="previewMsg muted" id="bgImageMsg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sysCard" aria-label="Footer links">
+                <h2 class="sysCardTitle">
+                    <span data-i18n="admin_site_footer_title">
+                        Footer
+                    </span>
+                </h2>
+                <div class="formGrid">
+                    <div class="fieldRow">
+                        <div class="fieldLabel">
+                            <div class="labelText">
+                                <span data-i18n="admin_site_footer_links">
+                                    Footer links
+                                </span>
+                            </div>
+                            <div class="sysHint">
+                                <span data-i18n="admin_site_footer_hint">
+                                    HTML links will be saved to KV (_SITE) and shown on the public page footer.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="fieldControl">
+                            <textarea id="footerLinks" maxlength="512" rows="4" placeholder="<a href='https://...'>Website</a> | <a href='mailto:...'>Email</a> | <a href='tel:...'>Tel</a> | <a href='https://wa.me/...'>WhatsApp</a>">
+                        </textarea>
+                        <div class="previewRow">
+                            <div id="footerLinksPreview" class="previewBox linkPreviewBox adminFooterLinks">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="status ok u-hidden" id="statusOk">
+        </div>
+        <div class="status err u-hidden" id="statusErr">
+        </div>
+        </main>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div aria-hidden="true" class="loadingOverlay" id="loadingOverlay">
+            <div class="loadingSheet" role="status" aria-live="polite" data-i18n-aria="msg_loading">
+                <div class="loadingSpinner" aria-hidden="true">
+                </div>
+                <div class="loadingText" id="loadingText" data-i18n="msg_loading">
+                    <span data-i18n="admin_site_saving">
+                        Saving...
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/admin_common.js"></script>
+        <script src="/assets/js/api.js"></script>
+        <script src="/assets/js/i18n.js"></script>
+        <script src="/assets/js/site.js"></script>
+        <script src="/assets/js/version_badge.js"></script>
+    </body>
+</html>

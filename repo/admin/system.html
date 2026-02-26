@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag Admin · System Settings</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="/assets/js/admin_guard.js"></script>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+                <button data-i18n="btn_sign_out" id="btnLogout" class="u-hidden">
+                    Sign out
+                </button>
+            </div>
+        </header>
+        <main class="wrap">
+            <div class="pillRow">
+                <a class="pill menuPill pillPrimary" data-i18n="admin_menu_new_tag" href="new.html">
+                    + New Tag
+                </a>
+                <span aria-hidden="true" class="pillSep">
+                </span>
+                <a class="pill menuPill" data-i18n="admin_menu_reference" href="reference.html">
+                    Reference Lists
+                </a>
+                <a class="pill menuPill" data-i18n="admin_menu_records" href="records.html">
+                    Records
+                </a>
+                <a class="pill menuPill active" data-i18n="admin_menu_system" href="system.html">
+                    System
+                </a>
+                <a class="pill menuPill" href="site.html">
+                    <span data-i18n="admin_menu_site">
+                        Site
+                    </span>
+                </a>
+            </div>
+            <h1 class="pageTitle" data-i18n="admin_system_title">
+                System
+            </h1>
+            <section aria-label="Build info" class="sysCard">
+                <h2 class="sysCardTitle" data-i18n="admin_system_build_title">
+                    Build Info
+                </h2>
+                <div class="sysList">
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_version">
+                            PicoTag Version
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono" id="appVersion">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_build_time">
+                            Build Time
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono" id="buildTime">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_project_github">
+                            Project GitHub
+                        </div>
+                        <div class="sysVal">
+                            <a class="sysLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                                https://github.com/206cc/PicoTag
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">License</div>
+                        <div class="sysVal">
+                            <a class="sysLink" href="../LICENSE.txt" id="licenseLink" rel="noopener" target="_blank">—</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section aria-label="KV status" class="sysCard">
+                <h2 class="sysCardTitle" data-i18n="admin_system_kv_title_lists">
+                    KV Status (Lists)
+                </h2>
+                <div class="sysHint" data-i18n="admin_system_kv_hint_lists_only">
+                    Shows list names and item counts only (no content).
+                </div>
+                <div class="sysNote" data-i18n="admin_system_kv_group_badminton">Badminton</div>
+                <div class="sysList" id="kvListBadminton">
+                    <div class="sysRow">
+                        <div class="sysKey">_RACKET</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">_PATTERN</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">_STRING</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                </div>
+
+                <div class="sysNote" data-i18n="admin_system_kv_group_tennis">Tennis</div>
+                <div class="sysList" id="kvListTennis">
+                    <div class="sysRow">
+                        <div class="sysKey">_RACKET_T</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">_PATTERN_T</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">_STRING_T</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                </div>
+                <div class="sysNote" data-i18n="admin_system_kv_group_other">Other</div>
+                <div class="sysList" id="kvListOther">
+                    <div class="sysRow">
+                        <div class="sysKey">_MACHINE</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey">_STRINGER</div>
+                        <div class="sysVal"><span class="mono">—</span></div>
+                    </div>
+                </div>
+
+            </section>
+            <section aria-label="D1 status" class="sysCard">
+                <h2 class="sysCardTitle" data-i18n="admin_system_d1_title">
+                    D1 Status (Tables)
+                </h2>
+                <div class="sysHint" data-i18n="admin_system_d1_hint">
+                    Table names and row counts.
+                </div>
+                <div class="sysList" id="d1Tables">
+                    <div class="sysRow">
+                        <div class="sysKey">
+                            records
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="initDbArea" class="u-hidden u-mt10">
+                    <button class="btn primary" id="btnInitDb" type="button" data-i18n="admin_system_init_db_btn">
+                        Initialize Database
+                    </button>
+                    <div class="sysHint u-mt8" id="initDbHint" data-i18n="admin_system_init_db_hint">
+                        Records table not found. Create the default schema for a new site.
+                    </div>
+                </div>
+            </section>
+            <section aria-label="Environment variables" class="sysCard">
+                <h2 class="sysCardTitle" data-i18n="admin_system_env_title">
+                    Environment Variables
+                </h2>
+                <div class="sysList">
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_app_origin">
+                            App Origin
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono" id="appOrigin">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_default_lang">
+                            Default Language
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono" id="defaultLang">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_turnstile_sitekey">
+                            Turnstile site key
+                        </div>
+                        <div class="sysVal">
+                            <span class="mono" id="turnstileSiteKey">
+                                —
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section aria-label="Security" class="sysCard">
+                <h2 class="sysCardTitle" data-i18n="admin_system_security_title">Security</h2>
+                <div class="sysList">
+                    <div class="sysRow">
+                        <div class="sysKey" data-i18n="admin_system_get_tagid_rate_limit">GET Tag ID rate limit</div>
+                        <div class="sysVal">
+                            <div class="secInlineRow">
+                                <div id="rlOptions"></div>
+                                <button class="btn btnPrimary" id="btnSaveSecurity" type="button">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="status ok u-hidden" id="statusOk"></div>
+            <div class="status err u-hidden" id="statusErr"></div>
+            <div class="sysNote" data-i18n="admin_system_note_env">
+                Note: Most configuration is managed via Cloudflare environment variables.
+            </div>
+        </main>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div aria-hidden="true" class="loadingOverlay" id="loadingOverlay">
+            <div aria-live="polite" class="loadingSheet" data-i18n-aria="msg_loading" role="status">
+                <div aria-hidden="true" class="loadingSpinner">
+                </div>
+                <div class="loadingText" data-i18n="msg_loading" id="loadingText">
+                    Loading
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/admin_common.js"></script>
+        <script src="/assets/js/api.js"></script>
+        <script src="/assets/js/i18n.js"></script>
+        <script src="/assets/js/system.js"></script>
+        <script src="/assets/js/version_badge.js"></script>
+    </body>
+</html>

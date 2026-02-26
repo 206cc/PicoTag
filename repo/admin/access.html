@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag Admin · Access</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" defer="" async=""></script>
+    </head>
+    <body class="hasFixedFooter">
+        <header class="topbar">
+            <div class="brand">
+                <a class="brandLink" href="../index.html">
+                    PicoTag
+                </a>
+                <span class="brandSub">
+                    Admin
+                </span>
+            </div>
+            <div class="topbarRight">
+            </div>
+        </header>
+        <main class="wrap">
+            <section class="card u-maxw520 u-my16 u-mx-auto">
+                <h1 class="h1" data-i18n="admin_access_title">
+                    Admin Verification
+                </h1>
+                <p class="muted" data-i18n="admin_access_desc">
+                    Please complete the Turnstile challenge and enter the admin password.
+                </p>
+                <div class="form">
+                    <label class="label" data-i18n="admin_access_password_label" for="pw">
+                        Admin Password
+                    </label>
+                    <div class="row">
+                        <input autocomplete="current-password" class="input" data-i18n-placeholder="admin_access_password_ph" id="pw" placeholder="Admin password" type="password">
+                        <button class="btn btnPrimary" data-i18n="admin_access_verify" id="btn">
+                            Verify
+                        </button>
+                    </div>
+                    <div class="row u-mt12 u-justify-center">
+                        <div class="cf-turnstile" data-sitekey="">
+                        </div>
+                    </div>
+                    <div class="msg" id="msg">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="/assets/js/api.js"></script>
+        <script src="/assets/js/i18n.js"></script>
+        <script src="/assets/js/admin_access.js"></script>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <a href="https://github.com/206cc/PicoBETH" rel="noopener" target="_blank">
+                            PicoBETH
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://www.youtube.com/@kuokuo702?sub_confirmation=1" rel="noopener" target="_blank">
+                            YouTube
+                        </a>
+                        <span aria-hidden="true" class="adminFooterSep">
+                            ·
+                        </span>
+                        <a href="https://github.com/206cc/PicoBETH/blob/main/docs/5.Pico_Stringing_Pattern.md" rel="noopener" target="_blank">
+                            Pico Stringing Pattern
+                        </a>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="/assets/js/version_badge.js"></script>
+    </body>
+</html>

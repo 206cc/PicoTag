@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; img-src &#x27;self&#x27; data: blob: https: http:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; script-src &#x27;self&#x27; https://challenges.cloudflare.com https://static.cloudflareinsights.com; connect-src &#x27;self&#x27; https://challenges.cloudflare.com https://cloudflareinsights.com; frame-src https://challenges.cloudflare.com; form-action &#x27;self&#x27;;">
+        <title>PicoTag · View</title>
+        <link rel="icon" href="/favicon.ico">
+        <link rel="stylesheet" href="assets/css/view.css">
+        <link rel="stylesheet" href="/assets/css/inline_migrated.css">
+    </head>
+    <body class="hasFixedFooter">
+        <div class="topbar">
+            <div class="brand">
+                <a class="brandName" href="/">
+                    Brand name
+                </a>
+            </div>
+            <div class="langBox">
+                <span class="langLabel" data-i18n="lang_label">
+                    Language:
+                </span>
+                <select aria-label="Language" data-i18n-aria="lang_label" id="langSelect">
+                    <option value="en">
+                        English
+                    </option>
+                    <option value="zh-TW">
+                        繁體中文
+                    </option>
+                    <option value="zh-CN">
+                        简体中文
+                    </option>
+                    <option value="id">
+                        Bahasa Indonesia
+                    </option>
+                    <option value="hi">
+                        हिन्दी
+                    </option>
+                    <option value="ta">
+                        தமிழ்
+                    </option>
+                    <option value="ms">
+                        Bahasa Melayu
+                    </option>
+                    <option value="th">
+                        ไทย
+                    </option>
+                    <option value="ja">
+                        日本語
+                    </option>
+                    <option value="ko">
+                        한국어
+                    </option>
+                    <option value="vi">
+                        Tiếng Việt
+                    </option>
+                    <option value="fil">
+                        Filipino
+                    </option>
+                    <option value="da">
+                        Dansk
+                    </option>
+                    <option value="de">
+                        Deutsch
+                    </option>
+                    <option value="fr">
+                        Français
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="err" id="err">
+            </div>
+            <div class="card u-mt14 u-hidden u-op0" id="emptyCard">
+                <div class="h1" data-i18n="view_empty_title">
+                    Find your record
+                </div>
+                <div class="sub" data-i18n="view_empty_hint" id="hint">
+                    Scan the QR code on the tag, or paste your 8-letter ID below.
+                </div>
+                <div class="formRow u-mt12">
+                    <div class="inputRow">
+                        <input aria-label="Tag ID" autocapitalize="off" autocomplete="off" class="in" id="idInput" inputmode="latin" maxlength="8" placeholder="Tag ID" spellcheck="false" type="text"/>
+                        <button class="btn" data-i18n="btn_open_record" id="openBtn" type="button">
+                            Open
+                        </button>
+                    </div>
+                    <div class="hint mono u-hidden" id="idHint">
+                    </div>
+                    <div class="intro">
+                        <div class="intro-wrap">
+                            <div class="intro-block">
+                                <div class="intro-title" id="introTitle">
+                                    Intro title
+                                </div>
+                                <div class="intro-text" id="introText">
+                                    Intro text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="introMedia">
+                        <img alt="PicoTag QR label example" data-default-src="assets/img/demo_tag.jpg" id="introMediaImg" loading="lazy" src="" class="u-hidden">
+                    </div>
+                </div>
+            </div>
+            <div class="card u-hidden u-mt14" id="content">
+                <div class="h1" data-i18n="view_h1" id="title">
+                    Stringing Record
+                </div>
+                <div class="titleActions u-hidden" id="titleActions">
+                    <button aria-label="Share" class="actionBtn" id="shareBtn" title="Share" type="button">
+                        <span aria-hidden="true" class="btnIcon">
+                            ↗
+                        </span>
+                        <span class="btnText" data-i18n="btn_share">
+                            Share
+                        </span>
+                    </button>
+                    <button aria-label="Print" class="actionBtn" id="printBtn" title="Print" type="button">
+                        <span aria-hidden="true" class="btnIcon">
+                            🖨
+                        </span>
+                        <span class="btnText" data-i18n="btn_print">
+                            Print
+                        </span>
+                    </button>
+                </div>
+                <div id="contentGrid">
+                    <div class="sectionCard" id="stringingInfoCard">
+                        <div class="sub" id="meta">
+                        </div>
+                        <div class="kv" id="kv">
+                        </div>
+                    </div>
+                    <div class="sectionCard u-mt12" id="actionsCard">
+                        <div class="qrActions u-hidden u-mt12" id="qrActions">
+                            <button class="btnNew btnNewDownload" data-i18n="btn_show_qr" id="showQrBtn" type="button">
+                                顯示QR CODE
+                            </button>
+                        </div>
+                        <div class="qrCard u-hidden u-mt12" id="qrCardView">
+                            <div id="qrcodeView">
+                            </div>
+                            <a class="btnNew btnNewDownload u-mt8 u-hidden" data-i18n="btn_download_qr" href="#" id="downloadPngLinkView">
+                                Download QR Code Label
+                            </a>
+                        </div>
+                        <div class="qrCard qrCardBR u-hidden u-mt12" id="qrCardViewBR">
+                            <div class="qrFrameSimple qrFrameBRGrad">
+                                <div id="qrcodeViewBR">
+                                </div>
+                            </div>
+                            <a class="btnNew btnNewDownload u-mt8 u-hidden" href="#" id="downloadPngLinkViewBR">
+                                Download
+                            </a>
+                        </div>
+                        <div class="delBox collapsible u-hidden" id="remarkBox">
+                            <button aria-expanded="false" class="collapsibleHeader" type="button">
+                                <span class="collapsibleTitle" data-i18n="view_remark_title">
+                                    Add Remark
+                                </span>
+                                <span aria-hidden="true" class="collapsibleChevron">
+                                    ▾
+                                </span>
+                            </button>
+                            <div class="collapsibleBody u-maxh0">
+                                <div class="delHint" data-i18n="view_remark_hint">
+                                    Remarks are notes you add later. Each remark is saved with a timestamp and appended to the record.
+                                </div>
+                                <div class="delRow u-flexcol u-gap8 u-align-stretch">
+                                    <textarea class="in" data-i18n-placeholder="ph_remark" id="remarkTextView" maxlength="256" rows="4"></textarea>
+                                    <div class="delRow u-m0">
+                                        <input autocomplete="current-password" class="in" data-i18n-placeholder="ph_delpass" id="remarkPassView" placeholder="" type="password"/>
+                                        <button class="btn" data-i18n="btn_submit_remark" id="remarkBtn" type="button">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="delMsg u-hidden" id="remarkMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delBox collapsible u-hidden" id="deleteBox">
+                            <button aria-expanded="false" class="collapsibleHeader" type="button">
+                                <span class="collapsibleTitle" data-i18n="view_delete_title">
+                                    Delete Tag
+                                </span>
+                                <span aria-hidden="true" class="collapsibleChevron">
+                                    ▾
+                                </span>
+                            </button>
+                            <div class="collapsibleBody u-maxh0">
+                                <div class="delHint" data-i18n="view_delete_hint">
+                                    If you set a delete/view password when creating this tag, you can delete it here.
+                                </div>
+                                <div class="delRow">
+                                    <input autocomplete="current-password" class="in" data-i18n-placeholder="ph_delpass" id="delPassView" placeholder="" type="password"/>
+                                    <button class="btn btnDanger" data-i18n="btn_delete_tag" id="delBtn" type="button">
+                                        Delete
+                                    </button>
+                                </div>
+                                <div class="delMsg u-hidden" id="delMsg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infoBox" id="infoBoxView">
+                            <div class="infoHeader infoHeader-center">
+                                <div class="infoTitle" data-i18n="disc_title">
+                                    Notes / Disclaimer
+                                </div>
+                            </div>
+                            <ul class="infoList">
+                                <li data-i18n="nd_1">
+                                    This page shows stringing info shared by users/stringers. Content may be inaccurate and is not guaranteed.
+                                </li>
+                                <li data-i18n="nd_2">
+                                    Photo/Video links are user-provided and may lead to third-party sites. Open only if you trust the source.
+                                </li>
+                                <li data-i18n="nd_3">
+                                    The info and labels/QR code are for identification/reference only and do not imply warranty or liability.
+                                </li>
+                                <li data-i18n="nd_4">
+                                    To remove this Tag, use the Delete Password set when the Tag was created. If you don’t have the password, please provide the Tag ID/link and contact the site owner for assistance.
+                                </li>
+                                <li data-i18n="nd_5">
+                                    Data persistence is not guaranteed. Please back up important information yourself.
+                                </li>
+                                <li class="noticeWarn" data-i18n-html="nd_terms">
+                                    Please make sure you’ve read the
+                                    <a href="https://github.com/206cc/PicoTag/blob/main/NOTICE.md" rel="noopener" target="_blank">
+                                        Terms &amp; Data Notice
+                                    </a>
+                                    before creating a Tag ID.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div aria-hidden="true" class="modal u-hidden" id="modal">
+            <div class="modalBackdrop" id="modalBackdrop">
+            </div>
+            <div aria-labelledby="modalTitle" aria-modal="true" class="modalCard" role="dialog">
+                <div class="modalTitle" id="modalTitle">
+                </div>
+                <div class="modalBody" id="modalBody">
+                </div>
+                <div class="modalActions">
+                    <button class="btn btnSecondary" data-i18n="btn_cancel" id="modalCancel" type="button">
+                        Cancel
+                    </button>
+                    <button class="btn" data-i18n="btn_confirm" id="modalOk" type="button">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="cutLineBR" class="u-hidden">
+        </div>
+        <div class="printFooter u-hidden" id="printFooter">
+            PicoTag · https://example.com
+        </div>
+        <footer class="adminFooter">
+            <div class="adminFooterInner">
+                <div class="adminFooterTop">
+                    <div class="adminFooterTitle">
+                        PicoTag - Stringing Record ·
+                        <a class="footerLink" href="https://github.com/206cc/PicoTag" rel="noopener" target="_blank">
+                            GitHub
+                        </a>
+                    </div>
+                    <div class="adminFooterLinks">
+                        <span id="footerLinksArea">
+                            Footer links
+                        </span>
+                    </div>
+                </div>
+                <div class="adminFooterMeta">
+                    <div>
+                        ©
+                        <a href="mailto:contact@picotag.cc">
+                            KuoKuo
+                        </a>
+                        2026
+                    </div>
+                    <div>
+                        Track Your Strings.
+                        <span class="footerVersion footerVersionBadge" data-version-badge="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/i18n.js"></script>
+        <script src="assets/js/qrcode.js"></script>
+        <script src="assets/js/qr_label.js"></script>
+        <script src="assets/js/view.js"></script>
+        <script src="assets/js/footer.js"></script>
+        <script src="assets/js/version_badge.js"></script>
+    </body>
+</html>
