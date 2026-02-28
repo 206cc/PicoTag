@@ -9,6 +9,10 @@
 > 用 QR Code 把「每一次穿線紀錄」貼在球拍上：掃一下就能查看日期、張力、線材、球拍資訊與備註。  
 > 不綁定任何特定硬體，穿線師 / 店家 / 自己穿線的人都能使用。
 
+PicoTag 30 秒快速示範：建立 Tag、產生 QR 標籤，並掃描查看穿線紀錄。
+
+[![PicoTag 快速示範（YouTube Shorts）](https://img.youtube.com/vi/-zU-sv66qa0/0.jpg)](https://youtu.be/-zU-sv66qa0)
+
 ## 快速了解：它能做什麼？
 
 - **建立 Tag → 產生 QR Code → 列印貼紙 → 貼到球拍**  
