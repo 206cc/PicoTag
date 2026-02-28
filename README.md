@@ -9,6 +9,10 @@
 > Put a QR code tag on your racket to keep every stringing record: scan it to view the date, tension, string, racket info, and notes.  
 > Hardware-agnostic — suitable for stringers, shops, and DIY stringers.
 
+A 30-second walkthrough of PicoTag: create a tag, generate the QR label, and scan to view stringing records.
+
+[![PicoTag quick demo (YouTube Shorts)](https://img.youtube.com/vi/-zU-sv66qa0/0.jpg)](https://youtu.be/-zU-sv66qa0)
+
 ## Quick Overview: What can it do?
 
 - **Create a Tag → Generate a QR Code → Print a label → Stick it on the racket**  
